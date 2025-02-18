@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Lato', sans-serif;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -41,6 +41,10 @@ nav ul li a {
     text-decoration: none;
 }
 
+p.mar {
+    margin-bottom: 30px;
+}
+
 .btn {
     background-color: #0056b3;
     padding: 10px 20px;
@@ -51,9 +55,17 @@ nav ul li a {
 }
 
 .hero {
-    padding: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     background-color: #003366;
     color: white;
+    width: 100%; /* Ensure the section takes full width */
+}
+
+.hero-content {
+    max-width: 500px; /* Limit the maximum width of the content */
+    margin: 0 auto; /* Center the content */
+    text-align: center; /* Align the text to the left */
 }
 
 .features {
@@ -78,36 +90,68 @@ footer {
     justify-content: space-between;
     margin: 0 auto;
     max-width: 1200px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 .service-item {
     flex: 1;
-    margin: 0 10px;
+    margin: 10px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    text-align: left; /* Align content to the right */
+    text-align: left;
+    min-width: 250px; /* Ensure minimum width for smaller screens */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .experience {
     padding: 50px 0;
-    background-color: #f9f9f9;
+    background-color: #003366; /* Same background color as the hero section */
+    color: white; /* Ensure text color matches the hero section */
     text-align: center;
 }
 
 .testimonials-container {
-    display: flex;
+    /* display: flex;
     justify-content: space-between;
     margin: 0 auto;
     max-width: 1200px;
+    flex-wrap: wrap; Allow wrapping on smaller screens */
+    max-width: 600px; /* Limit the maximum width of the content */
+    margin: 0 auto; /* Center the content */
+    text-align: center; /* Align the text to the left */
 }
 
 .testimonial-item {
     flex: 1;
-    margin: 0 10px;
+    margin: 10px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #fff;
     text-align: left;
+    min-width: 250px; /* Ensure minimum width for smaller screens */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Media queries for responsive design */
+@media (max-width: 500px) {
+    nav ul li:not(:last-child) {
+        display: none; /* Hide all navigation items except the last one */
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .services-container, .testimonials-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-item, .testimonial-item {
+        margin: 10px 0;
+        width: 100%; /* Ensure full width on smaller screens */
+    }
 }
